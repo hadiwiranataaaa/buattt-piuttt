@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Girlfriend Day ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:radial-gradient(circle,#203a57,#08111d);
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-family:Arial,sans-serif;
+}
+
+/*======================
+BACKGROUND
+======================*/
+
+.circle{
+    position:absolute;
+    border:2px solid rgba(255,255,255,.15);
+    border-radius:50%;
+    animation:float 12s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-120vh);
+    }
+}
+
+/*======================
+HALAMAN
+======================*/
+
+.page{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.hidden{
+    display:none;
+}
+
+/*======================
+HALAMAN 1
+======================*/
+
+.surat{
+    width:270px;
+    min-height:170px;
+    background:#fff2d7;
+    border-radius:18px;
+    padding:25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:absolute;
+    bottom:50%;
+    opacity:0;
+    transform:translateY(40px) scale(.8);
+    transition:.8s;
+    z-index:20;
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+    border:3px solid #ffd8a8;
+}
+
+.surat::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:1px dashed #f4b183;
+    border-radius:12px;
+}
+
+.surat.buka{
+    opacity:1;
+    transform:translateY(-150px) scale(1);
+}
+
+#judul{
+    font-size:30px;
+    color:#ff5fa2;
+    font-family:cursive;
+}
+
+/*======================
+AMPLOP
+======================*/
+
+.envelope{
+    position:absolute;
+    bottom:40%;
+    width:190px;
+    height:125px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.envelope:hover{
+    transform:scale(1.05);
+}
+
+.base{
+    position:absolute;
+    bottom:0;
+    width:190px;
+    height:115px;
+    background:#ff8fbe;
+    border-radius:0 0 12px 12px;
+}
+
+.top{
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:95px solid transparent;
+    border-right:95px solid transparent;
+    border-top:70px solid #ff6ea9;
+    transform-origin:top;
+    transition:.8s;
+}
+
+.envelope.open .top{
+    transform:rotateX(180deg);
+}
+
+.klik{
+    position:absolute;
+    bottom:24%;
+    font-size:20px;
+    animation:blink 1.4s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.4;
+    }
+}
+
+/*======================
+HALAMAN 2
+======================*/
+
+#page2{
+    display:none;
+}
+
+.box{
+    position:relative;
+    width:90%;
+    max-width:620px;
+    height:460px;
+    overflow:hidden;
+    border-radius:25px;
+    border:4px solid white;
+    box-shadow:0 0 25px rgba(255,255,255,.25);
+}
+
+/* FOTO BACKGROUND */
+
+.bg-foto{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    object-fit:cover;
+    filter:brightness(.35);
+}
+
+#typing{
+    position:relative;
+    z-index:2;
+    padding:30px;
+    color:white;
+    font-size:25px;
+    line-height:1.8;
+    white-space:pre-wrap;
+    font-family:'Patrick Hand',cursive;
+    text-shadow:2px 2px 10px black;
+}
+
+#loveBtn{
+    margin-top:30px;
+    width:250px;
+    height:72px;
+    border:none;
+    border-radius:50px;
+    background:#ff4da6;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#loveBtn:hover{
+    transform:scale(1.05);
+}
+/*======================
+HALAMAN 3
+======================*/
+
+#page3{
+    display:none;
+}
+
+.akhir{
+    width:90%;
+    max-width:430px;
+    background:#111827;
+    border:3px solid white;
+    border-radius:22px;
+    padding:28px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(255,255,255,.25);
+}
+
+.heartbesar{
+    font-size:75px;
+    animation:denyut 1s infinite;
+}
+
+@keyframes denyut{
+    50%{
+        transform:scale(1.2);
+    }
+}
+
+.akhir h1{
+    color:#ff5fa2;
+    margin:15px 0;
+    font-family:cursive;
+}
+
+.akhir p{
+    font-family:'Patrick Hand',cursive;
+    font-size:24px;
+    line-height:1.8;
+}
+
+.akhir button{
+    margin-top:20px;
+    padding:14px 35px;
+    border:none;
+    border-radius:40px;
+    background:#ff5fa2;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script>
+
+// Background Lingkaran
+
+for(let i=0;i<12;i++){
+
+    let c=document.createElement("div");
+
+    c.className="circle";
+
+    let ukuran=60+Math.random()*120;
+
+    c.style.width=ukuran+"px";
+    c.style.height=ukuran+"px";
+
+    c.style.left=Math.random()*100+"%";
+    c.style.top=Math.random()*100+"%";
+
+    c.style.animationDuration=(8+Math.random()*8)+"s";
+
+    document.body.appendChild(c);
+
+}
+
+</script>
+
+<!-- ================= HALAMAN 1 ================= -->
+
+<div class="page" id="page1">
+
+    <div class="surat" id="surat">
+        <h2 id="judul"></h2>
+    </div>
+
+    <div class="envelope" id="amplop" onclick="buka()">
+        <div class="top"></div>
+        <div class="base"></div>
+    </div>
+
+    <p class="klik">
+        Klik amplopnya yaa... 💌
+    </p>
+
+</div>
+
+<!-- ================= HALAMAN 2 ================= -->
+
+<div class="page" id="page2">
+
+    <div class="box">
+
+        <!-- Ganti foto di sini -->
+        <img src="pihad.jpg" class="bg-foto" alt="Foto Kamu">
+
+        <div id="typing"></div>
+
+    </div>
+
+    <button id="loveBtn">
+        ❤️ I Love You ❤️
+    </button>
+
+</div>
+<!-- ================= HALAMAN 3 ================= -->
+
+<div class="page" id="page3">
+
+    <div class="akhir">
+
+        <div class="heartbesar">❤️</div>
+
+        <h1>Untuk Kamu ❤️</h1>
+
+        <p>
+
+            Terima kasih yaa karena sudah menjadi bagian dari hidupku.
+
+            <br><br>
+
+            Semoga kamu selalu sehat,
+            selalu bahagia,
+            dan semua impianmu bisa tercapai.
+
+            <br><br>
+
+            Jangan pernah berhenti tersenyum yaa.
+
+            <br><br>
+
+            Aku akan selalu mendoakan yang terbaik buat kamu.
+
+            <br><br>
+
+            I Love You Forever ❤️
+
+        </p>
+
+        <button onclick="selesai()">
+            ❤️ Terima Kasih ❤️
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+// ==================== BUKA AMPLOP ====================
+
+function buka(){
+
+    document.getElementById("amplop").classList.add("open");
+
+    document.getElementById("judul").innerHTML="Halooo<br>Sayangggg ❤️";
+
+    setTimeout(()=>{
+        document.getElementById("surat").classList.add("buka");
+    },300);
+
+    setTimeout(()=>{
+        document.getElementById("page1").style.display="none";
+        document.getElementById("page2").style.display="flex";
+        ketik();
+    },2200);
+
+}
+
+// ==================== EFEK KETIK ====================
+
+const text=`Happy Girlfriend Day ❤️
+
+Terima kasih yaa karena sudah hadir di hidupku.
+
+Semoga kamu selalu sehat,
+selalu bahagia,
+dan semua impianmu bisa tercapai.
+
+Kalau suatu hari kamu lagi capek...
+
+Ingat yaa...
+
+Aku akan selalu ada buat kamu.
+
+Aku bangga punya kamu.
+
+I Love You Forever ❤️`;
+
+let i=0;
+
+function ketik(){
+
+    if(i<text.length){
+
+        if(text.charAt(i)=="\n"){
+            document.getElementById("typing").innerHTML+="<br>";
+        }else{
+            document.getElementById("typing").innerHTML+=text.charAt(i);
+        }
+
+        i++;
+
+        setTimeout(ketik,45);
+
+    }
+
+}
+// ==================== TOMBOL LOVE ====================
+
+document.getElementById("loveBtn").onclick = function(){
+
+    document.getElementById("page2").style.display = "none";
+    document.getElementById("page3").style.display = "flex";
+
+};
+
+// ==================== TOMBOL TERIMA KASIH ====================
+
+function selesai(){
+
+    alert("❤️ Happy Girlfriend Day ❤️");
+
+    // Jika ingin diarahkan ke halaman lain, ganti alert di atas dengan:
+    // window.location.href="https://link-kamu.com";
+
+}
+
+</script>
+
+</body>
+</html>
