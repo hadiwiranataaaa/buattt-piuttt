@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,6 +16,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -23,34 +26,8 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#fff;
-    font-family:Arial,sans-serif;
+    color:white;
 }
-
-/*======================
-BACKGROUND
-======================*/
-
-.circle{
-    position:absolute;
-    border:2px solid rgba(255,255,255,.15);
-    border-radius:50%;
-    animation:float 12s linear infinite;
-    pointer-events:none;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-120vh);
-    }
-}
-
-/*======================
-HALAMAN
-======================*/
 
 .page{
     position:absolute;
@@ -66,28 +43,50 @@ HALAMAN
     display:none;
 }
 
-/*======================
-HALAMAN 1
-======================*/
+/* =====================
+   BACKGROUND
+===================== */
+
+.circle{
+    position:absolute;
+    border:2px solid rgba(255,255,255,.15);
+    border-radius:50%;
+    animation:float 10s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+    100%{
+        transform:translateY(-100vh);
+    }
+}
+
+/* =====================
+   HALAMAN 1
+===================== */
 
 .surat{
-    width:270px;
-    min-height:170px;
-    background:#fff2d7;
+    width:260px;
+    min-height:150px;
+    background:#fff1d6;
     border-radius:18px;
-    padding:25px;
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
+    padding:25px;
     position:absolute;
     bottom:50%;
     opacity:0;
     transform:translateY(40px) scale(.8);
-    transition:.8s;
+    transition:.8s ease;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.35),
+    inset 0 0 20px rgba(255,200,150,.3);
+    border:3px solid #ffd6a5;
     z-index:20;
-    box-shadow:0 15px 35px rgba(0,0,0,.3);
-    border:3px solid #ffd8a8;
 }
 
 .surat::before{
@@ -105,21 +104,21 @@ HALAMAN 1
 
 #judul{
     font-size:30px;
-    color:#ff5fa2;
     font-family:cursive;
+    color:#e75480;
+    text-align:center;
 }
 
-/*======================
-AMPLOP
-======================*/
+/* Amplop */
 
 .envelope{
     position:absolute;
     bottom:40%;
-    width:190px;
-    height:125px;
+    width:180px;
+    height:120px;
     cursor:pointer;
     transition:.3s;
+    z-index:10;
 }
 
 .envelope:hover{
@@ -129,8 +128,8 @@ AMPLOP
 .base{
     position:absolute;
     bottom:0;
-    width:190px;
-    height:115px;
+    width:180px;
+    height:110px;
     background:#ff8fbe;
     border-radius:0 0 12px 12px;
 }
@@ -141,11 +140,12 @@ AMPLOP
     left:0;
     width:0;
     height:0;
-    border-left:95px solid transparent;
-    border-right:95px solid transparent;
-    border-top:70px solid #ff6ea9;
+    border-left:90px solid transparent;
+    border-right:90px solid transparent;
+    border-top:65px solid #ff6ea9;
     transform-origin:top;
     transition:.8s;
+    z-index:15;
 }
 
 .envelope.open .top{
@@ -154,79 +154,79 @@ AMPLOP
 
 .klik{
     position:absolute;
-    bottom:24%;
-    font-size:20px;
-    animation:blink 1.4s infinite;
+    bottom:25%;
+    font-size:18px;
+    animation:blink 1.5s infinite;
 }
 
 @keyframes blink{
     50%{
-        opacity:.4;
+        opacity:.5;
     }
 }
 
-/*======================
-HALAMAN 2
-======================*/
+/* =====================
+   HALAMAN 2
+===================== */
 
 #page2{
     display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
 .box{
-    position:relative;
     width:90%;
     max-width:620px;
     height:460px;
-    overflow:hidden;
-    border-radius:25px;
+    background:#111827;
     border:4px solid white;
-    box-shadow:0 0 25px rgba(255,255,255,.25);
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 0 20px rgba(255,255,255,.25);
+    overflow-y:auto;
 }
 
-/* FOTO BACKGROUND */
-
-.bg-foto{
-    position:absolute;
+.foto-pihad{
     width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    object-fit:cover;
-    filter:brightness(.35);
+    max-width:220px;
+    border-radius:15px;
+    display:block;
+    margin:0 auto 20px auto;
+    border:2px solid #ff5fa2;
+    box-shadow:0 4px 10px rgba(0,0,0,.5);
 }
 
 #typing{
-    position:relative;
-    z-index:2;
-    padding:30px;
     color:white;
-    font-size:25px;
+    font-size:26px;
     line-height:1.8;
     white-space:pre-wrap;
     font-family:'Patrick Hand',cursive;
-    text-shadow:2px 2px 10px black;
 }
 
 #loveBtn{
     margin-top:30px;
-    width:250px;
-    height:72px;
+    width:240px;
+    height:70px;
     border:none;
     border-radius:50px;
-    background:#ff4da6;
+    background:#ff5fa2;
     color:white;
     font-size:22px;
     cursor:pointer;
     transition:.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
 }
 
 #loveBtn:hover{
-    transform:scale(1.05);
+    transform:scale(1.08);
 }
-/*======================
-HALAMAN 3
-======================*/
+
+/* =====================
+   HALAMAN 3
+===================== */
 
 #page3{
     display:none;
@@ -234,17 +234,17 @@ HALAMAN 3
 
 .akhir{
     width:90%;
-    max-width:430px;
+    max-width:420px;
     background:#111827;
     border:3px solid white;
-    border-radius:22px;
-    padding:28px;
+    border-radius:20px;
+    padding:25px;
     text-align:center;
-    box-shadow:0 0 25px rgba(255,255,255,.25);
+    box-shadow:0 0 20px rgba(255,255,255,.25);
 }
 
 .heartbesar{
-    font-size:75px;
+    font-size:70px;
     animation:denyut 1s infinite;
 }
 
@@ -268,7 +268,7 @@ HALAMAN 3
 
 .akhir button{
     margin-top:20px;
-    padding:14px 35px;
+    padding:13px 35px;
     border:none;
     border-radius:40px;
     background:#ff5fa2;
@@ -278,14 +278,13 @@ HALAMAN 3
 }
 
 </style>
-
 </head>
 
 <body>
 
 <script>
 
-// Background Lingkaran
+// Background lingkaran
 
 for(let i=0;i<12;i++){
 
@@ -300,8 +299,6 @@ for(let i=0;i<12;i++){
 
     c.style.left=Math.random()*100+"%";
     c.style.top=Math.random()*100+"%";
-
-    c.style.animationDuration=(8+Math.random()*8)+"s";
 
     document.body.appendChild(c);
 
@@ -318,8 +315,11 @@ for(let i=0;i<12;i++){
     </div>
 
     <div class="envelope" id="amplop" onclick="buka()">
+
         <div class="top"></div>
+
         <div class="base"></div>
+
     </div>
 
     <p class="klik">
@@ -330,25 +330,27 @@ for(let i=0;i<12;i++){
 
 <!-- ================= HALAMAN 2 ================= -->
 
-<div class="page" id="page2">
+<div class="page" id="page2" style="display:none;">
 
-    <div class="box">
+    <div class="box" id="boxContainer">
 
-        <!-- Ganti foto di sini -->
-        <img src="pihad.jpg" class="bg-foto" alt="Foto Kamu">
+        <img src="pihad.jpg" alt="Pihad" class="foto-pihad">
 
         <div id="typing"></div>
 
     </div>
 
     <button id="loveBtn">
+
         ❤️ I Love You ❤️
+
     </button>
 
 </div>
+
 <!-- ================= HALAMAN 3 ================= -->
 
-<div class="page" id="page3">
+<div class="page" id="page3" style="display:none;">
 
     <div class="akhir">
 
@@ -368,15 +370,11 @@ for(let i=0;i<12;i++){
 
             <br><br>
 
-            Jangan pernah berhenti tersenyum yaa.
+            Jangan lupa tetap jadi diri kamu yang aku kenal.
 
             <br><br>
 
-            Aku akan selalu mendoakan yang terbaik buat kamu.
-
-            <br><br>
-
-            I Love You Forever ❤️
+            Aku sayang kamu, hari ini, besok, dan seterusnya. ❤️
 
         </p>
 
@@ -398,21 +396,27 @@ function buka(){
 
     document.getElementById("judul").innerHTML="Halooo<br>Sayangggg ❤️";
 
-    setTimeout(()=>{
+    setTimeout(function(){
+
         document.getElementById("surat").classList.add("buka");
+
     },300);
 
-    setTimeout(()=>{
+    setTimeout(function(){
+
         document.getElementById("page1").style.display="none";
+
         document.getElementById("page2").style.display="flex";
+
         ketik();
+
     },2200);
 
 }
 
 // ==================== EFEK KETIK ====================
 
-const text=`Happy Girlfriend Day ❤️
+const text=`Happy Girlfriend Day sayangkuuu 🤍🫶
 
 sebelummnyaaaa hadiii mauuu bilangggg
 makasiiiii sayanggg udahhhh hadirrr di 
@@ -480,39 +484,43 @@ function ketik(){
     if(i<text.length){
 
         if(text.charAt(i)=="\n"){
+
             document.getElementById("typing").innerHTML+="<br>";
+
         }else{
+
             document.getElementById("typing").innerHTML+=text.charAt(i);
+
         }
 
         i++;
+
+        // Auto-scroll ke bawah mengikuti teks yang sedang diketik
+        let box = document.getElementById("boxContainer");
+        box.scrollTop = box.scrollHeight;
 
         setTimeout(ketik,45);
 
     }
 
 }
+
 // ==================== TOMBOL LOVE ====================
 
-document.getElementById("loveBtn").onclick = function(){
+document.getElementById("loveBtn").onclick=function(){
 
-    document.getElementById("page2").style.display = "none";
-    document.getElementById("page3").style.display = "flex";
+    document.getElementById("page2").style.display="none";
+
+    document.getElementById("page3").style.display="flex";
 
 };
-
-// ==================== TOMBOL TERIMA KASIH ====================
 
 function selesai(){
 
     alert("❤️ Happy Girlfriend Day ❤️");
 
-    // Jika ingin diarahkan ke halaman lain, ganti alert di atas dengan:
-    // window.location.href="https://link-kamu.com";
-
 }
 
 </script>
-
 </body>
 </html>
