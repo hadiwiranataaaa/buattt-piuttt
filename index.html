@@ -1,29 +1,101 @@
 <!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Happy Girlfriend Day</title>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Saya</title>
+</head>
+<body>
+
+<h1>Halo</h1>
+
+<img src="1000467457.png" alt="Foto" width="300">
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I LOVE YOU PIAA ❤️</title>
+
 <style>
-body{margin:0;overflow:hidden;display:flex;justify-content:center;align-items:center;height:100vh;background:linear-gradient(135deg,#ff8fb1,#ffd6e7);font-family:Arial}
-#env{width:260px;height:170px;position:relative;cursor:pointer;transition:.8s}
-.base{position:absolute;bottom:0;width:100%;height:110px;background:#ff6f91;clip-path:polygon(0 0,100% 0,50% 100%)}
-.left,.right{position:absolute;bottom:0;width:50%;height:110px;background:#ff87a5}
-.left{left:0;clip-path:polygon(0 0,100% 100%,0 100%)}
-.right{right:0;clip-path:polygon(100% 0,100% 100%,0 100%)}
-.flap{position:absolute;top:0;width:100%;height:90px;background:#ff5f87;transform-origin:top;clip-path:polygon(0 0,100% 0,50% 100%);transition:.8s}
-#letter{position:absolute;left:20px;right:20px;bottom:30px;height:120px;background:#fff;border-radius:8px;padding:10px;transform:translateY(70px);transition:.8s;overflow:auto}
-.open .flap{transform:rotateX(180deg)}
-.open #letter{transform:translateY(-70px)}
-h2{color:#ff4f7a;margin:0 0 8px;text-align:center}p{font-size:14px;text-align:center}
-.heart{position:fixed;top:-20px;animation:fall linear forwards}
-@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
-.tip{position:absolute;bottom:-40px;width:100%;text-align:center;color:#fff;font-weight:bold}
-</style></head><body>
-<div id="env">
-<div class="flap"></div><div class="left"></div><div class="right"></div><div class="base"></div>
-<div id="letter"><h2>Happy Girlfriend Day ❤️</h2><p>Untuk <b>Sayang</b>,<br>Terima kasih sudah hadir di hidupku. Semoga kita selalu bersama, saling menguatkan, dan saling menyayangi. Aku sayang kamu hari ini, besok, dan seterusnya. ❤️</p></div>
-<div class="tip">Sentuh amplop ❤️</div>
-</div>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    background:#000;
+    perspective:1200px;
+}
+
+#heart{
+    position:relative;
+    width:520px;
+    height:520px;
+    transform-style:preserve-3d;
+    animation:spin 10s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform:rotateY(0deg);
+    }
+    to{
+        transform:rotateY(360deg);
+    }
+}
+
+.word{
+    position:absolute;
+    color:#ff79c6;
+    font-size:11px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-weight:bold;
+    white-space:nowrap;
+    text-shadow:
+        0 0 5px #ff79c6,
+        0 0 10px #ff1493,
+        0 0 20px #ff1493,
+        0 0 35px #ff1493;
+}
+</style>
+</head>
+<body>
+
+<div id="heart"></div>
+
 <script>
-const env=document.getElementById('env');
-let started=false;
-env.onclick=()=>{env.classList.toggle('open');if(!started){started=true;setInterval(()=>{let h=document.createElement('div');h.className='heart';h.textContent='❤️';h.style.left=Math.random()*100+'vw';h.style.fontSize=(16+Math.random()*24)+'px';h.style.animationDuration=(3+Math.random()*3)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),6000)},120)}}
-</script></body></html>
+
+const heart = document.getElementById("heart");
+
+for(let t = 0; t < Math.PI * 2; t += 0.06){
+
+    let x = 16 * Math.pow(Math.sin(t),3);
+    let y = 13*Math.cos(t)
+          -5*Math.cos(2*t)
+          -2*Math.cos(3*t)
+          -Math.cos(4*t);
+
+    const span = document.createElement("span");
+    span.className = "word";
+    span.textContent = "❤ I LOVE YOU PIAA";
+
+    span.style.left = (x * 16 + 260) + "px";
+    span.style.top  = (-y * 16 + 260) + "px";
+
+    heart.appendChild(span);
+}
+
+</script>
+
+</body>
+</html>
